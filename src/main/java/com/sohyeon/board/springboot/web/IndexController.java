@@ -1,7 +1,7 @@
 package com.sohyeon.board.springboot.web;
 
-import com.sohyeon.board.springboot.config.auth.LoginUser;
-import com.sohyeon.board.springboot.config.auth.dto.SessionUser;
+
+import com.sohyeon.board.springboot.domain.user.User;
 import com.sohyeon.board.springboot.service.posts.PostsService;
 import com.sohyeon.board.springboot.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ public class IndexController {
     // private final HttpSession httpsession;
 
     @GetMapping("/")
-    public String index(Model model, @LoginUser SessionUser user){
+    public String index(Model model, User user){
         model.addAttribute("posts", postsService.findAllDesc());
         // SessionUser user = (SessionUser) httpsession.getAttribute("user");
 
