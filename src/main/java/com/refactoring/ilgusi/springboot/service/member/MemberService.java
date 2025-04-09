@@ -14,7 +14,9 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     public MemberResponseDto findById(String id){
-        Optional<Member> entity = memberRepository.findById(id);
-        return new MemberResponseDto(entity.get());
+        /*Optional<Member> entity = memberRepository.findById(id);
+        return new MemberResponseDto(entity.get());*/
+        System.out.println("!!");
+        return null;
     }
 }

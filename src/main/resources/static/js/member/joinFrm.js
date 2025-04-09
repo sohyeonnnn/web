@@ -213,7 +213,7 @@ $(document).ready(function () {
     $("#reg-form").on("submit", function (e) {
         e.preventDefault(); // 가장 먼저 위치해야 함
         $.ajax({
-            type: "post",
+            type: "get",
             url: "/checkDupId",
             data: {
                 id: $("#id").val()

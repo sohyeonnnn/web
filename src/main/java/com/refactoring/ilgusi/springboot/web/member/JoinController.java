@@ -1,13 +1,16 @@
 package com.refactoring.ilgusi.springboot.web.member;
 
 import com.refactoring.ilgusi.springboot.service.member.MemberService;
-import com.refactoring.ilgusi.springboot.web.dto.PostsResponseDto;
-import com.refactoring.ilgusi.springboot.web.dto.member.MemberResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class JoinController {
@@ -20,15 +23,28 @@ public class JoinController {
         return "/member/joinFrm";
     }
 
-    @GetMapping({"/checkDupId"})
     @ResponseBody
-    public String checkDupId(String id) {
-        if(service.findById(id).equals(null)) {
-            return "{\"result\":\"false\"}";
-        }else {
-            return "{\"result\":\"true\"}"; // 중복임
+    @RequestMapping("/checkDupId")
+    public Map<String, String> checkDuplicateId(@RequestParam String id) {
+        // 예시: 이미 존재하는 아이디 목록 (실제로는 DB 조회로 확인해야 함)
+        List<String> existingIds = List.of("test123", "admin", "user01");
+
+        Map<String, String> result = new HashMap<>();
+        if (existingIds.contains(id)) {
+            result.put("result", "true");  // 중복됨
+        } else {
+            result.put("result", "false"); // 중복 아님
         }
+
+        return result;
     }
+
+
+    @RequestMapping({"/register"})
+    @ResponseBody
+    public void register(String id) {
+    }
+
 
 }
 
