@@ -1,10 +1,9 @@
 package com.refactoring.ilgusi.springboot.web;
 
 
-import com.refactoring.ilgusi.springboot.domain.user.User;
+import com.refactoring.ilgusi.springboot.domain.member.User;
 import com.refactoring.ilgusi.springboot.service.posts.PostsService;
 import com.refactoring.ilgusi.springboot.web.dto.CategorySlide;
-import com.refactoring.ilgusi.springboot.web.dto.CategorySlider;
 import com.refactoring.ilgusi.springboot.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -25,9 +24,6 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model, User user){
-        model.addAttribute("posts", postsService.findAllDesc());
-        // SessionUser user = (SessionUser) httpsession.getAttribute("user");
-
         if(user!= null){
             model.addAttribute("userName", user.getName());
         }

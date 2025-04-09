@@ -1,4 +1,4 @@
-package com.refactoring.ilgusi.springboot.domain.user;
+package com.refactoring.ilgusi.springboot.domain.member;
 
 import com.refactoring.ilgusi.springboot.domain.posts.BaseTimeEntity;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package com.refactoring.ilgusi.springboot.domain.user;
+package com.refactoring.ilgusi.springboot.domain.member;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
