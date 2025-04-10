@@ -5,10 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import study.controller.member.dto.MemberForm;
+import study.domain.member.dto.MemberForm;
 import study.domain.member.Member;
-import study.service.MemberService;
+import study.service.member.MemberService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -39,8 +40,11 @@ public class MemberController {
 
     @GetMapping(value = "/members")
     public String list(Model model) {
-        List<Member> members = memberService.findMembers();
-        model.addAttribute("members", members);
+        Long memberId = 1l;
+        Member member = memberService.findMember(memberId);
+        List<Member> list = new ArrayList<>();
+        list.add(member);
+        model.addAttribute("members", list);
         return "member/memberList";
     }
 

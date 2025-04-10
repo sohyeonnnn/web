@@ -1,6 +1,6 @@
-package study.domain.member;
+package study.domain.member.repository;
 
-import org.springframework.stereotype.Repository;
+import study.domain.member.Member;
 
 import java.util.*;
 
@@ -15,9 +15,12 @@ public class MemoryMemberRepository  implements MemberRepository {
 		return member;
 	}
 	@Override
-	public Optional<Member> findById(Long id) {
-		return Optional.ofNullable(store.get(id));
+	public Member findById(Long id) {
+		return store.get(id);
 	}
+	/*public Optional<Member> findById(Long id) {
+		return Optional.ofNullable(store.get(id));
+	}*/
 	@Override
 	public List<Member> findAll() {
 		return new ArrayList<>(store.values());

@@ -1,4 +1,4 @@
-package study.controller.member.dto;
+package study.domain.member.dto;
 
 public class MemberForm {
     private String name;
