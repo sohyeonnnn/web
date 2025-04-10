@@ -1,6 +1,5 @@
 package com.refactoring.ilgusi.springboot.web.dto;
 
-import jdk.nashorn.internal.objects.annotations.Constructor;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
