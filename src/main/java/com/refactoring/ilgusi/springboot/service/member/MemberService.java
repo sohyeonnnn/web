@@ -1,30 +1,31 @@
 package com.refactoring.ilgusi.springboot.service.member;
 
 import com.refactoring.ilgusi.springboot.domain.member.Member;
-import com.refactoring.ilgusi.springboot.web.dto.member.MemberResponseDto;
+import com.refactoring.ilgusi.springboot.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import javax.transaction.Transactional;
 
+@Transactional
 @RequiredArgsConstructor
 @Service
 public class MemberService {
-   /* private final MemberRepository memberRepository ;//= new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
 
-    public MemberService(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
+    public Member registerMember(Member m) {
+        // 비번 암호화
+//		m.setMPw(encPw(m.getMPw()));
+
+        return memberRepository.save(m);
     }
-*/
 
-
-    public MemberResponseDto findById(String id){
-        /*Optional<Member> entity = memberRepository.findById(id);
-        return new MemberResponseDto(entity.get());*/
+    /*public MemberResponseDto findById(String id){
+        *//*Optional<Member> entity = memberRepository.findById(id);
+        return new MemberResponseDto(entity.get());*//*
         System.out.println("!!");
         return null;
-    }
+    }*/
 
     /**
      *
@@ -51,4 +52,39 @@ public class MemberService {
     public Optional<Member> findOne(String memberId) {
         return memberRepository.findById(memberId);
     }
-*/}
+*/
+
+
+   /* @Transactional
+    public Long update(Long id, PostsUpdateRequestDto requestDto){
+        Posts posts = postsRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id = "+id));
+
+        posts.update(requestDto.getTitle(), requestDto.getContent());
+
+        return id;
+    }
+
+    public PostsResponseDto findById(Long id){
+        Posts entity = postsRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id = "+id));
+        return new PostsResponseDto(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc(){
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void delete(Long id){
+        Posts posts = postsRepository.findById(id)
+                .orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id="+id));
+        postsRepository.delete(posts);
+    }*/
+
+
+
+}

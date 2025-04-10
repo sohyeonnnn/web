@@ -1,11 +1,12 @@
 package study.domain.member.repository;
 
+import org.springframework.stereotype.Repository;
 import study.domain.member.Member;
 
 import javax.persistence.EntityManager;
 import java.util.*;
 
-//@Repository
+@Repository
 public class JpaMemberRepository implements MemberRepository {
 	private final EntityManager em;
 	public JpaMemberRepository(EntityManager em) {
@@ -15,15 +16,10 @@ public class JpaMemberRepository implements MemberRepository {
 		em.persist(member);
 		return member;
 	}
-	/*public Optional<Member> findById(Long id) {
+	public Optional<Member> findById(Long id) {
 		Member member = em.find(Member.class, id);
 		return Optional.ofNullable(member);
-	}*/
-	public Member findById(Long id) {
-		Member member = em.find(Member.class, id);
-		return member;
 	}
-
 
 	public List<Member> findAll() {
 		return em.createQuery("select m from Member m", Member.class)

@@ -1,11 +1,8 @@
 package study.service.order;
 
 import study.domain.discount.DiscountPolicy;
-import study.domain.discount.FixDiscountPolicy;
-import study.domain.discount.RateDiscountPolicy;
 import study.domain.member.Member;
 import study.domain.member.repository.MemberRepository;
-import study.domain.member.repository.MemoryMemberRepository;
 import study.domain.order.Order;
 
 import javax.transaction.Transactional;
