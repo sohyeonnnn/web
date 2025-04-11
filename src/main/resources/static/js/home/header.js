@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //카테고리 목록 불러오는거
     $.ajax({
-        url: '/categoryAjax.do',
+        url: '/categoryLoad',
         dataType: 'json',
         success: function (data) {
             let $navUl = $(".nav>ul");

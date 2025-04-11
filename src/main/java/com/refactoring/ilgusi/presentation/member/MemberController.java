@@ -50,8 +50,14 @@ public class MemberController {
     }
 
     @RequestMapping({"/register"})
-    public String register(Member m, Model model) { //(@ModelAttribute가 생략
-        if (memberService.registerMember(m)==null){
+    public String register(Member member, Model model) { //(@ModelAttribute가 생략
+        System.out.println(member.toString());
+        System.out.println(model.toString());
+
+        System.out.println(member.getMName());
+        System.out.println(member.getMId());
+
+        if (memberService.registerMember(member)!=null){
             model.addAttribute("msg", "회원가입 성공! 로그인 해주세요!");
             model.addAttribute("loc", "/");
         } else {

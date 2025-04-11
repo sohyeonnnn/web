@@ -1,6 +1,9 @@
 package com.refactoring.ilgusi.config;
 
+import com.refactoring.ilgusi.domain.category.CategoryRepository;
 import com.refactoring.ilgusi.domain.member.MemberRepository;
+import com.refactoring.ilgusi.infrastructure.repository.jpa.home.JpaCategoryRepository;
+import com.refactoring.ilgusi.infrastructure.repository.jpa.home.SpringDataCategoryRepository;
 import com.refactoring.ilgusi.infrastructure.repository.jpa.member.JpaMemberRepository;
 import com.refactoring.ilgusi.infrastructure.repository.jpa.member.SpringDataMemberRepository;
 import com.refactoring.ilgusi.infrastructure.repository.mybatis.member.MemberMapper;
@@ -21,8 +24,15 @@ public class RepositoryConfig {
     }
 
     @Bean
+    @Profile("jpa")
+    public CategoryRepository jpaCategoryRepository(SpringDataCategoryRepository repo) {
+        return new JpaCategoryRepository(repo);
+    }
+
+    @Bean
     @Profile("mybatis")
     public MemberRepository myBatisMemberRepository(MemberMapper mapper) {
         return new MybatisMemberRepository(mapper);
     }
+
 }

@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class Notice {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int nNo;
+	private Integer nNo;
 	@Column(nullable=false)
 	private String nTitle;
 	@Column(nullable=false)

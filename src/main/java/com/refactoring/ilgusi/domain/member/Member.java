@@ -12,7 +12,8 @@ import javax.persistence.*;
 public class Member {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int mNo;
+	@Column(name = "m_no")
+	private Integer mNo;
 	@Column(nullable=false)
 	private String mId;
 	@Column(nullable=false)
@@ -25,9 +26,9 @@ public class Member {
 	private String mPhone;
 	@Enumerated(EnumType.STRING)
 	@Column
-	private Role mGrade;
+	private RoleEnum mGrade;
 	@Column
-	private int warningCount;
+	private Integer warningCount;
 	@Column
 	private String introduce;
 	@Column
@@ -37,9 +38,9 @@ public class Member {
 	@Column
 	private String contactTime;
 	@Column
-	private int buyingCount;
+	private Integer buyingCount;
 	@Column
-	private int sellingCount;
+	private Integer sellingCount;
 	// 줄바꿈
 	public String getIntroduceBr() {
 		return introduce.replaceAll("\r\n", "<br>");

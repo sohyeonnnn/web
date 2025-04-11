@@ -5,12 +5,12 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum Role {
+public enum RoleEnum {
 
-    GUEST("ROLE_GUEST", "회원"),
-    USER("ROLE_ADMIN", "관리자");
+    GUEST(0, "회원"),
+    USER(1, "관리자");
 
-    private final String key;
+    private final Integer key;
     private final String title;
 
 }

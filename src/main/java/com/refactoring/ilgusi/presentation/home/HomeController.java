@@ -21,7 +21,7 @@ public class HomeController {
     @GetMapping("/")
     public String index(Model model, Member user){
         if(user!= null){
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("userName", user.getMName());
         }
 
 

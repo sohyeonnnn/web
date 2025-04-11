@@ -19,6 +19,11 @@ public class MybatisMemberRepository implements MemberRepository {
     public MybatisMemberRepository(MemberMapper mapper) {
         this.mapper = mapper;
     }
+
+    @Override
+    public Member save(Member member) {
+        return null;
+    }
 /*
 
     @Override
