@@ -17,10 +17,7 @@ public class CategoryService {
     private final CategoryRepository categoryRepository;
 
     public List<Category> selectCategoryList() {
-        // 비번 암호화
-//		m.setMPw(encPw(m.getMPw()));
-
-        return categoryRepository.;
+       return categoryRepository.findAll();
     }
 
 }

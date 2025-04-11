@@ -1,10 +1,13 @@
 package com.refactoring.ilgusi.presentation.home;
 
 import com.refactoring.ilgusi.application.home.CategoryService;
+import com.refactoring.ilgusi.domain.category.Category;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 
 @RequiredArgsConstructor
@@ -15,12 +18,8 @@ public class CategoryController {
 
     @GetMapping("/categoryLoad")
     @ResponseBody
-    public String categoryLoad(/*HttpServletResponse resp*/) {
-        /*Gson gson = new Gson();
-        List<Category> list = categoryService.selectCategoryList();
-        String json = gson.toJson(list);
-        return json;*/
-        return null;
+    public List<Category> categoryLoad(/*HttpServletResponse resp*/) {
+        return categoryService.selectCategoryList();
     }
 
 
