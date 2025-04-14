@@ -1,8 +1,11 @@
 package com.refactoring.ilgusi.application.member;
 
+import com.refactoring.ilgusi.common.ResultData;
 import com.refactoring.ilgusi.domain.member.Member;
 import com.refactoring.ilgusi.domain.member.MemberRepository;
+import com.refactoring.ilgusi.domain.member.RoleEnum;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 
@@ -11,78 +14,34 @@ import javax.transaction.Transactional;
 @Service
 public class MemberService {
     private final MemberRepository memberRepository;
+    private final BCryptPasswordEncoder encoder;
 
-    public Member registerMember(Member m) {
-        // 비번 암호화
-//		m.setMPw(encPw(m.getMPw()));
+    public ResultData<Void> register(Member m) {
+        //초기화
+        m.setMPw(encoder.encode(m.getMPw()));
+        if (m.getMGrade() == null) {
+            m.setMGrade(RoleEnum.USER);
+        }
 
-        return memberRepository.save(m);
+        //저장
+        /*if (memberRepository.existsByUsername(request.getUsername())) {
+            return ResultData.fail("이미 존재하는 아이디입니다.");
+        }*/
+
+        try{
+            memberRepository.save(m);
+            return ResultData.success(null, "회원가입 성공!!");
+        }catch (Exception e){
+            return ResultData.fail("회원가입 실패!!");
+        }
     }
 
-    /*public MemberResponseDto findById(String id){
-        *//*Optional<Member> entity = memberRepository.findById(id);
-        return new MemberResponseDto(entity.get());*//*
-        System.out.println("!!");
+    /*public ResultData<Void> checkDuplicateId(String id){
+        Member member = memberRepository.findByMId(id).get();
+        System.out.println(member);
         return null;
     }*/
 
-    /**
-     *
-     회원가입
-     */
-    /*public Integer join(Member member) {
-        validateDuplicateMember(member); //중복 회원 검증
-        memberRepository.save(member);
-        return member.getMNo();
-    }
-    private void validateDuplicateMember(Member member) {
-        memberRepository.findByName(member.getMName())
-                .ifPresent(m -> {
-                    throw new IllegalStateException("이미 존재하는 회원입니다.");
-                });
-    }*/
-    /**
-     *
-     전체 회원 조회
-     */
-    /*public List<Member> findMembers() {
-        return memberRepository.findAll();
-    }
-    public Optional<Member> findOne(String memberId) {
-        return memberRepository.findById(memberId);
-    }
-*/
-
-
-   /* @Transactional
-    public Long update(Long id, PostsUpdateRequestDto requestDto){
-        Posts posts = postsRepository.findById(id)
-                .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id = "+id));
-
-        posts.update(requestDto.getTitle(), requestDto.getContent());
-
-        return id;
-    }
-
-    public PostsResponseDto findById(Long id){
-        Posts entity = postsRepository.findById(id)
-                .orElseThrow(()->new IllegalArgumentException("해당 게시글이 없습니다. id = "+id));
-        return new PostsResponseDto(entity);
-    }
-
-    @Transactional(readOnly = true)
-    public List<PostsListResponseDto> findAllDesc(){
-        return postsRepository.findAllDesc().stream()
-                .map(PostsListResponseDto::new)
-                .collect(Collectors.toList());
-    }
-
-    @Transactional
-    public void delete(Long id){
-        Posts posts = postsRepository.findById(id)
-                .orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id="+id));
-        postsRepository.delete(posts);
-    }*/
 
 
 

@@ -46,4 +46,15 @@ public class Member {
 		return introduce.replaceAll("\r\n", "<br>");
 	}
 
+	//jpa사용시 - 엔티티 객체가 persist(저장)되기 전에 자동으로 실행
+	/*@PrePersist
+	public void setDefault() {
+		// 비밀번호 암호화
+		this.mPw = CommonUtil.encrypt(this.mPw);
+		// 기본 등급 설정
+		if (this.mGrade == null) {
+			this.mGrade = RoleEnum.USER;
+		}
+	}*/
+
 }

@@ -142,7 +142,7 @@
             </div>
             <div class="search-bottom">
                 <a href="/">로그인</a>
-                <a href="/join.do">회원가입</a>
+                <a href="/member/joinFrm">회원가입</a>
             </div>
         </div>
     </section>

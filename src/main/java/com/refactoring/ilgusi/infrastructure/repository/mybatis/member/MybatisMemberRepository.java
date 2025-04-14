@@ -12,7 +12,7 @@ import java.util.List;
 // 🔸 공통 인터페이스를 구현하고 내부에서 MyBatis를 사용
 @Profile("mybatis")
 //@Repository
-public class MybatisMemberRepository implements MemberRepository {
+public class MybatisMemberRepository /*implements MemberRepository*/ {
 
     private final MemberMapper mapper;
 
@@ -20,10 +20,6 @@ public class MybatisMemberRepository implements MemberRepository {
         this.mapper = mapper;
     }
 
-    @Override
-    public Member save(Member member) {
-        return null;
-    }
 /*
 
     @Override

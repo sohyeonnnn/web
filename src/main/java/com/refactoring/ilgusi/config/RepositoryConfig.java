@@ -6,15 +6,13 @@ import com.refactoring.ilgusi.infrastructure.repository.jpa.home.JpaCategoryRepo
 import com.refactoring.ilgusi.infrastructure.repository.jpa.home.SpringDataCategoryRepository;
 import com.refactoring.ilgusi.infrastructure.repository.jpa.member.JpaMemberRepository;
 import com.refactoring.ilgusi.infrastructure.repository.jpa.member.SpringDataMemberRepository;
-import com.refactoring.ilgusi.infrastructure.repository.mybatis.member.MemberMapper;
-import com.refactoring.ilgusi.infrastructure.repository.mybatis.member.MybatisMemberRepository;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@MapperScan(basePackages = "com.refactoring.infrastructure.repository.mybatis")
+//@MapperScan(basePackages = "com.refactoring.infrastructure.repository.mybatis")
 public class RepositoryConfig {
 
     @Bean
@@ -29,10 +27,10 @@ public class RepositoryConfig {
         return new JpaCategoryRepository(repo);
     }
 
-    @Bean
+  /*  @Bean
     @Profile("mybatis")
     public MemberRepository myBatisMemberRepository(MemberMapper mapper) {
         return new MybatisMemberRepository(mapper);
-    }
+    }*/
 
 }

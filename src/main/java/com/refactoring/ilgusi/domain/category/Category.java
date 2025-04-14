@@ -16,6 +16,4 @@ public class Category {
 	private String cName;
 	@Column
 	private Integer cDivisionNo;
-	@Column
-	private String cDivisionName;
 }
