@@ -31,7 +31,7 @@ public class MemberController {
         return memberService.checkDuplicateId(id);
     }
 
-    @GetMapping("/register")
+    @RequestMapping("/register")
     public String register(/*@ModelAttribute 생략가능*/Member member, Model model) {
         System.err.println("*******11111111111********");
         ResultData<Map<String, Object>> result =  memberService.register(member);
