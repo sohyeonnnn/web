@@ -1,18 +1,21 @@
 package com.refactoring.ilgusi.domain.member;
 
+import com.refactoring.ilgusi.common.BaseEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-public class Member {
+public class Member extends BaseEntity {
 	@Id
+	@Column(name = "M_NO")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "m_no")
 	private Integer mNo;
 	@Column(nullable=false)
 	private String mId;
@@ -32,6 +35,7 @@ public class Member {
 	@Column
 	private String introduce;
 	@Column
+	@CreatedDate
 	private String enrollDate;
 	@Column
 	private String brandName;

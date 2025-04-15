@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.Map;
 @Controller
 public class HomeController {
 
-    // private final HttpSession httpsession;
+    private final HttpSession httpsession;
 
     @GetMapping("/")
     public String index(Model model, Member user){
@@ -58,6 +59,7 @@ public class HomeController {
             model.addAttribute("mypageUrl", "/manageMember.do?reqPage=1&grade=all&keyword=&order=new");
             model.addAttribute("mypageLabel", "관리페이지");
         }
+
 
 
         // 배너 이미지 (로그인 여부와 무관하게 동일하게 사용 가능)

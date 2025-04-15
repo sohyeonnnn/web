@@ -7,15 +7,14 @@ $(document).ready(function () {
             let $navUl = $(".nav>ul");
 
             for (let i = 0; i < data.length; i++) {
-                if (data[i].cDivision == 'm') {
-                    $navUl.append("<li><a href='/serviceList.do?cNo=" + data[i].cNo +
+                if (data[i].cNo == data[i].cDivisionNo ) {
+                    $navUl.append("<li><a href='/serviceList?cNo=" + data[i].cNo +
                         "&reqPage=1&order=new&keyword='>" + data[i].cName +
                         "</a> <ul></ul></li>")
 
-                }
-                if (data[i].cDivision == 's') {
+                }else{
                     $(".nav>ul>li:eq(" + (parseInt(data[i].cNo / 10) - 1) + ")>ul").append(
-                        "<li><a href='/serviceList.do?cNo=" + data[i].cNo +
+                        "<li><a href='/serviceList?cNo=" + data[i].cNo +
                         "&reqPage=1&order=new&keyword='>" + data[i].cName + "</a></li>")
                 }
             }

@@ -20,10 +20,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
+                .csrf().disable() // CSRF 보호 해제
                 .authorizeRequests()
-                .antMatchers("/register", "/login", "/css/**", "/js/**").permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().permitAll(); // 🔓 모든 요청 허용 (로그인 없이 접근 가능)
     }
 
 }

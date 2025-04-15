@@ -31,13 +31,12 @@ public class MemberController {
         return memberService.checkDuplicateId(id);
     }
 
-    @RequestMapping("/register")
+    @PostMapping("/register")
     public String register(/*@ModelAttribute 생략가능*/Member member, Model model) {
-        System.err.println("*******11111111111********");
         ResultData<Map<String, Object>> result =  memberService.register(member);
+        System.out.println(result.toString());
         model.addAttribute("msg", result.getMessage());
         model.addAttribute("loc", result.getData().get("redirectUrl"));
-        System.err.println("********2222222222222222*******");
         return "/common/msg";
     }
 
@@ -48,18 +47,15 @@ public class MemberController {
 
     @PostMapping("/login")
     public String login(HttpServletRequest req, String id, String pw, Model model) {
-        System.out.println("로그인 시도");
-        System.out.println("id" + id + " pw:" + pw);
-        memberService.checkLoginMember(id, pw);
+        Member m = memberService.checkLoginMember(id, pw).getData();
 
-  /*     // Member m = memberService.checkLoginMember(id, pw);
         String loc="/";
 
         if (m != null) {
-            *//*m.setBuyingCount(memberService.selectBuyingCount(m.getMNo()));
+           /* m.setBuyingCount(memberService.selectBuyingCount(m.getMNo()));
             m.setSellingCount(memberService.selectSellingCount(m.getMId()));
             if (m.getMGrade() != 0)
-                m.setMGrade(1);*//*
+                m.setMGrade(1);}*/
 
             HttpSession session = req.getSession();
             session.setAttribute("loginMember", m);
@@ -69,12 +65,11 @@ public class MemberController {
         }
         model.addAttribute("loc", loc);
         if (m != null && m.getMGrade().equals(RoleEnum.ADMIN))
-            model.addAttribute("loc", "/manageMember.do?reqPage=1&grade=all&keyword=&order=new");
-*/
+            model.addAttribute("loc", "/");
+
         return "common/msg";
     }
 
-    // (도현) 로그아웃
     @RequestMapping("/logout")
     public String login(HttpServletRequest req, Model model) {
         HttpSession session = req.getSession();

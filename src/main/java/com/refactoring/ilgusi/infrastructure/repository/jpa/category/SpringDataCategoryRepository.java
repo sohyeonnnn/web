@@ -1,4 +1,4 @@
-package com.refactoring.ilgusi.infrastructure.repository.jpa.home;
+package com.refactoring.ilgusi.infrastructure.repository.jpa.category;
 
 import com.refactoring.ilgusi.domain.category.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
