@@ -221,7 +221,7 @@ $(document).ready(function () {
             dataType: "json",
             success: function (response) {
                 if (response.result == "true") {
-                    alert("아이디가 중복되었습니다.");
+                    alert(response.message);
                     $("#id").val('');
                     $("#id").trigger("keyup");
                     $("#id").trigger("blur");
@@ -230,7 +230,7 @@ $(document).ready(function () {
                     $("#reg-form")[0].submit();
                 }
             },
-            error: function () {
+            error: function (response) {
                 alert("서버 오류가 발생했습니다.");
             }
         });

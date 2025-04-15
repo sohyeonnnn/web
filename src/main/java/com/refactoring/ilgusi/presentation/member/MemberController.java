@@ -3,17 +3,14 @@ package com.refactoring.ilgusi.presentation.member;
 import com.refactoring.ilgusi.common.ResultData;
 import com.refactoring.ilgusi.domain.member.Member;
 import com.refactoring.ilgusi.application.member.MemberService;
+import com.refactoring.ilgusi.domain.member.RoleEnum;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -23,55 +20,77 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    /*회원가입*/
     @GetMapping({"/join"})
     public String joinFrm() {
         return "/member/joinFrm";
     }
 
-    /*@ResponseBody
-    @RequestMapping("/checkDupId")
-    public Map<String, String> checkDuplicateId(@RequestParam String id) {
-        ResultData<Void> member = memberService.checkDuplicateId(id);
-        Map<String, String> response = new HashMap<>();
-        //response.put("result", isDuplicate ? "true" : "false");
-        return response;
-
-    }*/
-
     @ResponseBody
-    @RequestMapping("/register")
-    public ResponseEntity<ResultData<Void>> register(/*@ModelAttribute 생략가능*/Member member) {
-        ResultData returnData = memberService.register(member);
-        return ResponseEntity.ok(returnData);
+    @RequestMapping("/checkDupId")
+    public ResultData<Void> checkDuplicateId(@RequestParam String id) {
+        return memberService.checkDuplicateId(id);
     }
 
-    // (도현) 회원가입 기능
-    @RequestMapping("/register.do")
-    public String register1(Member m, Model model) {
-        System.out.println("register.do 접속");
-        System.out.println("아아ㅣ디: " + m.getMId());
-        memberService.register(m);
+    @GetMapping("/register")
+    public String register(/*@ModelAttribute 생략가능*/Member member, Model model) {
+        System.err.println("*******11111111111********");
+        ResultData<Map<String, Object>> result =  memberService.register(member);
+        model.addAttribute("msg", result.getMessage());
+        model.addAttribute("loc", result.getData().get("redirectUrl"));
+        System.err.println("********2222222222222222*******");
+        return "/common/msg";
+    }
 
-       /* if (result > 0) {
-            model.addAttribute("msg", "회원가입 성공! 로그인 해주세요!");
-            model.addAttribute("loc", "/");
+    @GetMapping("/forgotIdPwd")
+    public String searchIdPwFrm() {
+        return "/member/searchIdPw";
+    }
+
+    @PostMapping("/login")
+    public String login(HttpServletRequest req, String id, String pw, Model model) {
+        System.out.println("로그인 시도");
+        System.out.println("id" + id + " pw:" + pw);
+        memberService.checkLoginMember(id, pw);
+
+  /*     // Member m = memberService.checkLoginMember(id, pw);
+        String loc="/";
+
+        if (m != null) {
+            *//*m.setBuyingCount(memberService.selectBuyingCount(m.getMNo()));
+            m.setSellingCount(memberService.selectSellingCount(m.getMId()));
+            if (m.getMGrade() != 0)
+                m.setMGrade(1);*//*
+
+            HttpSession session = req.getSession();
+            session.setAttribute("loginMember", m);
+            model.addAttribute("msg", "로그인 성공");
         } else {
-            model.addAttribute("msg", "회원가입 실패!");
-            model.addAttribute("loc", "/join.do");
-        }*/
+            model.addAttribute("msg", "로그인 실패");
+        }
+        model.addAttribute("loc", loc);
+        if (m != null && m.getMGrade().equals(RoleEnum.ADMIN))
+            model.addAttribute("loc", "/manageMember.do?reqPage=1&grade=all&keyword=&order=new");
+*/
         return "common/msg";
     }
 
-    // (도현) 아이디/비번 찾기 페이지 이동
-    @RequestMapping("/forgot_pwd.do")
-    public String searchIdPwFrm() {
-        System.out.println("forgot_pwd.do 접속");
-        return "member/searchIdPw";
+    // (도현) 로그아웃
+    @RequestMapping("/logout")
+    public String login(HttpServletRequest req, Model model) {
+        HttpSession session = req.getSession();
+        if (session.getAttribute("loginMember") != null) {
+            session.setAttribute("loginMember", null);
+        }
+        model.addAttribute("msg", "로그아웃 성공");
+        model.addAttribute("loc", "/");
+        return "common/msg";
     }
 
+
+/*
+
     // (도현) 아이디 찾기 기능
-    @RequestMapping("/searchId.do")
+    @RequestMapping("/searchId")
     public String searchId(Member m, Model model) {
         System.out.println("searchId.do 접속");
         System.out.println("m: " + m.getMName() + " p:" + m.getMPhone());
@@ -129,26 +148,6 @@ public class MemberController {
         return "common/msg2";
     }
 
-
-
-    // (도현) 아이디 중복검사 ajax
-    @RequestMapping(value = "/checkId.do", produces = "text/json; charset=utf-8")
-    @ResponseBody
-    public String checkId(String id) {
-        System.out.println("중복검사 아이디:" + id);
-        Member m = service.checkId(id);
-        String json;
-        if (m != null) {
-            json = "{\"result\":\"true\"}"; // 중복임
-        } else {
-            json = "{\"result\":\"false\"}";
-            ; // 중복아님
-        }
-        return json;
-    }
-
-
-
     // (도현) 로그인
     @RequestMapping("/login.do")
     public String login(HttpServletRequest req, String id, String pw, Model model, String loc) {
@@ -186,6 +185,7 @@ public class MemberController {
         model.addAttribute("loc", "/");
         return "common/msg";
     }
+*/
 
     /*// (문정)사용자 마이페이지 이동
     @RequestMapping("/userMypage.do")

@@ -12,6 +12,6 @@ public enum RoleEnum {
     FREELANCER(2, "프리랜서");
 
     private final Integer key;
-    private final String title;
+    private final String value;
 
 }

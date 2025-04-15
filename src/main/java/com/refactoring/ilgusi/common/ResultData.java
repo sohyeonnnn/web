@@ -1,10 +1,14 @@
 package com.refactoring.ilgusi.common;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 @Data
 @NoArgsConstructor
@@ -23,12 +27,16 @@ public class ResultData<T> {
                 .build();
     }
 
-    public static <T> ResultData<T> fail(String message) {
+    public static <T> ResultData<T> fail(T data, String message) {
         return ResultData.<T>builder()
                 .isSuccess(false)
                 .message(message)
-                .data(null)
+                .data(data)
                 .build();
     }
 
+    @JsonProperty("result")
+    public String getResult() {
+        return String.valueOf(isSuccess);
+    }
 }

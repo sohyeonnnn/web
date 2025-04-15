@@ -10,6 +10,15 @@ import java.nio.file.Paths;
 @RequiredArgsConstructor
 public class CommonUtil {
 
+
+	public static <T> boolean isNull (T param){
+		if(param == null){
+			return true;
+		}else {
+			return false;
+		}
+	}
+
 	//파일 중복체크
 	public static String fileRename(String dir, String filename) {
 		Path directory = Paths.get(dir);

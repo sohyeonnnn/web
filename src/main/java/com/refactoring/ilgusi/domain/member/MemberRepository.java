@@ -6,16 +6,7 @@ import java.util.Optional;
 public interface MemberRepository  {
     // 여기서 필요한 커스터마이징 기능 추가
     void save(Member member);
-    //Optional<Member> findByMId(String mId);
+    Optional<Member> findBymId(String mId);
 
 
-
-
-
-
-    //Optional<Member> findById(Integer id);
-    //Member saveAndReturn(Member member);
-
-    /*custom*/
-   // Member getByIdOrThrow(Integer id);
 }

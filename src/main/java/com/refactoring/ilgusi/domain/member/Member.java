@@ -46,6 +46,27 @@ public class Member {
 		return introduce.replaceAll("\r\n", "<br>");
 	}
 
+	@Override
+	public String toString() {
+		return "Member{" +
+				"mNo=" + mNo +
+				", mId='" + mId + '\'' +
+				", mPw='" + mPw + '\'' +
+				", mName='" + mName + '\'' +
+				", mEmail='" + mEmail + '\'' +
+				", mPhone='" + mPhone + '\'' +
+				", mGrade=" + mGrade +
+				", warningCount=" + warningCount +
+				", introduce='" + introduce + '\'' +
+				", enrollDate='" + enrollDate + '\'' +
+				", brandName='" + brandName + '\'' +
+				", contactTime='" + contactTime + '\'' +
+				", buyingCount=" + buyingCount +
+				", sellingCount=" + sellingCount +
+				'}';
+	}
+
+
 	//jpa사용시 - 엔티티 객체가 persist(저장)되기 전에 자동으로 실행
 	/*@PrePersist
 	public void setDefault() {
