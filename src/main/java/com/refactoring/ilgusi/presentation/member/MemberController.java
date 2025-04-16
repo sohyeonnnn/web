@@ -52,11 +52,7 @@ public class MemberController {
         String loc="/";
 
         if (m != null) {
-           /* m.setBuyingCount(memberService.selectBuyingCount(m.getMNo()));
-            m.setSellingCount(memberService.selectSellingCount(m.getMId()));
-            if (m.getMGrade() != 0)
-                m.setMGrade(1);}*/
-
+            System.err.println(m.toString());
             HttpSession session = req.getSession();
             session.setAttribute("loginMember", m);
             model.addAttribute("msg", "로그인 성공");
