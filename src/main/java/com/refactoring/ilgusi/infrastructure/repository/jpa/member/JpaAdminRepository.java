@@ -21,9 +21,9 @@ import java.util.Optional;
 //@Repository
 public class JpaAdminRepository implements AdminRepository {
 
-    private final SpringDataMemberRepository jpaRepository;
+    private final SpringDataAdminRepository jpaRepository;
 
-    public JpaAdminRepository(SpringDataMemberRepository jpaRepository) {
+    public JpaAdminRepository(SpringDataAdminRepository jpaRepository) {
         this.jpaRepository = jpaRepository;
     }
 

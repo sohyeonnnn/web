@@ -1,7 +1,7 @@
 package com.refactoring.ilgusi.presentation.home;
 
 import com.refactoring.ilgusi.domain.member.Member;
-import com.refactoring.ilgusi.presentation.home.dto.CategorySlide;
+import com.refactoring.ilgusi.presentation.category.dto.CategorySlide;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

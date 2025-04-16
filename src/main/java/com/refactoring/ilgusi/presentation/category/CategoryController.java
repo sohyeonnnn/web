@@ -1,15 +1,13 @@
-package com.refactoring.ilgusi.presentation.home;
+package com.refactoring.ilgusi.presentation.category;
 
-import com.refactoring.ilgusi.application.home.CategoryService;
+import com.refactoring.ilgusi.application.category.CategoryService;
 import com.refactoring.ilgusi.common.ResultData;
 import com.refactoring.ilgusi.domain.category.Category;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 

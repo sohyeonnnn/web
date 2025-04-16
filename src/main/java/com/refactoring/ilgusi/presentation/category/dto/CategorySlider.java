@@ -1,4 +1,4 @@
-package com.refactoring.ilgusi.presentation.home.dto;
+package com.refactoring.ilgusi.presentation.category.dto;
 
 import java.util.List;
 
