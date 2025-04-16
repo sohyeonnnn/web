@@ -26,7 +26,70 @@ public class JpaMemberRepository  implements MemberRepository {
         return jpaRepository.findBymId(mId);
     }
 
+    @Override
+    public int selectBuyingCount(int mNo) {
+        return 0;
+    }
 
+    @Override
+    public int selectSellingCount(String mId) {
+        return 0;
+    }
+
+    @Override
+    public Member loginMember(String id, String pw) {
+        return null;
+    }
+
+    @Override
+    public int registerMember(Member m) {
+        return 0;
+    }
+
+    @Override
+    public Member checkId(String id) {
+        return null;
+    }
+
+    @Override
+    public Member searchIdPw(Member m) {
+        return null;
+    }
+
+    @Override
+    public int changePw(Member m) {
+        return 0;
+    }
+
+    @Override
+    public int changeMypage(String mId, String data, String object) {
+        return 0;
+    }
+
+    @Override
+    public int deleteMember(String mId) {
+        return 0;
+    }
+
+    @Override
+    public int changeGrade(String mId, int grade) {
+        return 0;
+    }
+
+    @Override
+    public int settingMemberGrade(Member m) {
+        return 0;
+    }
+
+    @Override
+    public int tradeStatus(int mNo) {
+        return 0;
+    }
+
+    @Override
+    public int setDeleteStatusY(String mId) {
+        return 0;
+    }
 
 
 }

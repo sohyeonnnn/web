@@ -11,7 +11,7 @@
     width: 910px;
     height: 332px;
     padding-left: 30px;
-    background-image: url(img/notice/notice.jpg);
+    background-image: url(/img/notice/notice.jpg);
     background-size: 910px;
     color: white;
 }

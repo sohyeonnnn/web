@@ -10,5 +10,6 @@ public interface CategoryRepository {
     /*Member findById(Long id);
     List<Member> findByName(String name);*/
    // Member save(Member member);
-    List<Category> findAll();
+    List<Category> selectCategoryList();
+    List<CategoryRank> selectCategoryRankList();
 }

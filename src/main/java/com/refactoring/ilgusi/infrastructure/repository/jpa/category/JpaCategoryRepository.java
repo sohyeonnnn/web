@@ -1,6 +1,7 @@
 package com.refactoring.ilgusi.infrastructure.repository.jpa.category;
 
 import com.refactoring.ilgusi.domain.category.Category;
+import com.refactoring.ilgusi.domain.category.CategoryRank;
 import com.refactoring.ilgusi.domain.category.CategoryRepository;
 
 import java.util.List;
@@ -16,9 +17,15 @@ public class JpaCategoryRepository implements CategoryRepository {
         this.jpaRepository = jpaRepository;
     }
 
+    @Override
+    public List<Category> selectCategoryList() {
+        return jpaRepository.selectCategoryList();
+    }
 
     @Override
-    public List<Category> findAll() {
-        return jpaRepository.findAll();
+    public List<CategoryRank> selectCategoryRankList() {
+        return jpaRepository.selectCategoryRankList();
     }
+
+
 }

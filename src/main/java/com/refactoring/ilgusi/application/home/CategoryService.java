@@ -20,12 +20,13 @@ public class CategoryService {
     private final CategoryRepository categoryRepository;
 
     public ResultData<List<Category>> selectCategoryList() {
-        List<Category> categoryList = categoryRepository.findAll();
+       /* List<Category> categoryList = categoryRepository.findAll();
         if (!categoryList.isEmpty()) {
             return ResultData.success(categoryList, null);
         } else {
             return ResultData.fail(null, "카테고리없음");
-        }
+        }*/
+        return null;
     }
 
 }
