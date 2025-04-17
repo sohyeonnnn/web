@@ -535,10 +535,10 @@
 	                        	<div class="anoCon" style="margin-top: 10px; margin-bottom:10px; height: 80px;">
 	                        	<input type="hidden" value="${ser.SNo }" id="serviceNo">
 	                        	<c:if test="${loginMember != null }">
-	                        		<a class="anoTitle" style="font-size: 10pt; height: 75px;" href="/serviceView.do?sNo=${ser.SNo}&reqPage=1&mNo=${loginMember.MNo }"> ${ser.STitle } </a>
+	                        		<a class="anoTitle" style="font-size: 10pt; height: 75px;" href="/serviceView?sNo=${ser.SNo}&reqPage=1&mNo=${loginMember.MNo }"> ${ser.STitle } </a>
 	                        	</c:if>
 	                        	<c:if test="${loginMember == null }">
-	                        		<a class="anoTitle" style="font-size: 10pt; height: 75px;" href="/serviceView2.do?sNo=${ser.SNo}&reqPage=1"> ${ser.STitle } </a>
+	                        		<a class="anoTitle" style="font-size: 10pt; height: 75px;" href="/serviceView2?sNo=${ser.SNo}&reqPage=1"> ${ser.STitle } </a>
 	                        	</c:if>
 	                        	
 	                        		<br>
@@ -618,7 +618,7 @@
                         <img src="/img/test/icon_profile.svg" width="100px;">
                         <p class="brandName bold-font">${m.brandName }</p>
 						<c:if test="${not empty m.brandName }">
-                        	<button class="emptyBtn" onclick="location.href='/introduceFrm.do?mId=${m.MId}&reqPage=1'">[${m.brandName }]의 프로필 보기</button>
+                        	<button class="emptyBtn" onclick="location.href='/introduceFrm?mId=${m.MId}&reqPage=1'">[${m.brandName }]의 프로필 보기</button>
                         </c:if>
                         <c:if test="${empty m.brandName }">
                         	<button class="emptyBtn" >탈퇴한 회원입니다</button>
@@ -692,7 +692,7 @@
             		var fCon = confirm("해당 서비스를 찜한 목록에서 제거 할까요?")
             		if(fCon == true){
             			$.ajax({
-                			url:"/deleteHeart.do",
+                			url:"/deleteHeart",
                 			type: "post",
                 			data:{mNo:m_no, 
                     			sNo:s_no},
@@ -708,7 +708,7 @@
             		}
             	}else{
             		$.ajax({
-                		url:"/insertHeart.do",
+                		url:"/insertHeart",
                 		type:"post",
                 		data:{mNo:m_no, 
                 			sNo:s_no},
@@ -739,7 +739,7 @@
         		alert("본인의 서비스는 문의할 수 없습니다.");
         	}else{
 			$.ajax({
-				url : "/makeRoom.do",
+				url : "/makeRoom",
 				type : "post",
 				async : false,
 				data : {
@@ -750,10 +750,10 @@
 					mGrade : mGrade
 				},
 				success : function(data) {
-					/* location.href = "/enterRoom.do?cNo=-1&sNo=" + sNo
+					/* location.href = "/enterRoom?cNo=-1&sNo=" + sNo
 							+ "&myId=" + userId + "&yourId=" + freeId
 							+ "&mGrade=" + mGrade */
-					var loc="/enterRoom.do?cNo=-1&sNo=" + sNo + "&myId="+ userId + "&yourId=" + freeId+"&mGrade="+mGrade
+					var loc="/enterRoom?cNo=-1&sNo=" + sNo + "&myId="+ userId + "&yourId=" + freeId+"&mGrade="+mGrade
 					var _left = Math.ceil(( window.screen.width - 530 )/2);
 					window.open(loc, '', 'width=530, height=630, left='+_left+', top=50, location=no,scrollbars=no,location=no, resizable=no'); 
 				},

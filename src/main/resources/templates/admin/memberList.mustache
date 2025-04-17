@@ -95,7 +95,7 @@
 											<!-- map값 불러오는 방법?? -->
 											<c:if test="${h.key eq m.MNo }">
 												<c:if test="${h.value ne 0}">
-													<a href="/tradeHistory.do?sNo=-1&mNo=${m.MNo }"
+													<a href="/tradeHistory?sNo=-1&mNo=${m.MNo }"
 														onClick="window.open(this.href, '', 'width=800, height=300, left=1000, scrollbars=no,location=no, resizable=no'); return false;">${h.value }</a>
 												</c:if>
 												<c:if test="${h.value eq 0}">-</c:if>
@@ -103,7 +103,7 @@
 										</c:forEach></td>
 								</c:if>
 								<td>${m.warningCount }</td>
-								<td><a href="/adminMessage.do?mNo=${m.MNo }"
+								<td><a href="/adminMessage?mNo=${m.MNo }"
 									onClick="window.open(this.href, '', 'width=300, height=350, left=1000, scrollbars=no,location=no, resizable=no'); return false;">
 										<img src="/img/icon/chat.png">
 								</a></td>

@@ -234,7 +234,7 @@ td {
 			//메세지보내기
 			//trade테이블 insert
 			$.ajax({
-				url : "/makeRoom.do",
+				url : "/makeRoom",
 				type : "post",
 				async : false,
 				data : {
@@ -254,7 +254,7 @@ td {
 					console.log(content);
 					//알림
 					$.ajax({
-						url : "/insertChat.do",
+						url : "/insertChat",
 						type : "post",
 						async : false,
 						data : {
@@ -271,7 +271,7 @@ td {
 							sNo = Number(sNo);
 										
 						 	$.ajax({
-								url : "/startTrade.do",
+								url : "/startTrade",
 								type : "post",
 								async : false,
 								data : {
@@ -287,7 +287,7 @@ td {
 									window.close();   
 								/* 	//작업수 1 증가
 									$.ajax({
-										url : "/updateCount.do",
+										url : "/updateCount",
 										type : "post",
 										async : false,
 										data : {

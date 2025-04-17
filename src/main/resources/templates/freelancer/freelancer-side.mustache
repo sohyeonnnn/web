@@ -79,7 +79,7 @@
 	    <hr>
 	    <ul class="menu">
 	        <li><img src="/img/icon/circle_navy.png">
-	        	<a href="/freelancerMypage.do?MNo=${loginMember.MNo}">프리랜서의 프로필</a>
+	        	<a href="/freelancerMypage?MNo=${loginMember.MNo}">프리랜서의 프로필</a>
 	        </li>
 	        <li><img src="/img/icon/circle_navy.png">
 	        	<c:choose>
@@ -90,13 +90,13 @@
 	        <li><img src="/img/icon/circle_navy.png">
 	        	<c:choose>
 	        		<c:when test="${loginMember.brandName == null }"><a href="javascript:errorMsg();">등록한 서비스 확인</a></c:when>
-	        		<c:otherwise><a href="/freelancerServiceList.do?mId=${loginMember.MId}&order=agree">등록한 서비스 확인</a></c:otherwise>
+	        		<c:otherwise><a href="/freelancerServiceList?mId=${loginMember.MId}&order=agree">등록한 서비스 확인</a></c:otherwise>
 	        	</c:choose>
 	        </li>
 	        <li><img src="/img/icon/circle_navy.png">
 	        	<c:choose>
 	        		<c:when test="${loginMember.brandName == null }"><a href="javascript:errorMsg();">거래 내역</a></c:when>
-	        		<c:otherwise><a href="/freelancerTradeHistory.do?mNo=${loginMember.MNo}">거래 내역</a></c:otherwise>
+	        		<c:otherwise><a href="/freelancerTradeHistory?mNo=${loginMember.MNo}">거래 내역</a></c:otherwise>
 	        	</c:choose>
 	        </li>
 	    </ul>
@@ -109,7 +109,7 @@
 			
 			//post로 넘기기 
 			var form = document.createElement("form");
-			form.action = "/changeGrade.do";
+			form.action = "/changeGrade";
 			form.method = "post";
 			
 			//id 추가
@@ -143,12 +143,12 @@
 		function isPossibleMakeService(){
 			var mId = $("#memberId").val();
 			$.ajax({
-				url : "/isPossibleMakeService.do",
+				url : "/isPossibleMakeService",
 				type : "post",
 				data : {"mId":mId},
 				success : function(result){
 					if(result <5){
-						location.href = "/serviceJoinFrm.do?MId="+mId;
+						location.href = "/serviceJoinFrm?MId="+mId;
 					}else{
 						alert('서비스를 생성할 수 있는 개수를 초과했습니다. \n현재 서비스 개수 : 5개');
 					}

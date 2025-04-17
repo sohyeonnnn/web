@@ -124,7 +124,7 @@
                     	첨부파일이 없습니다.
                     </c:if>
                     <c:if test="${req.filepath!=null }">
-                    	<a href="/requestFileDownload.do?filepath=${req.filepath }">${req.filename }</a>
+                    	<a href="/requestFileDownload?filepath=${req.filepath }">${req.filename }</a>
                     </c:if>
                     </th>
                     <th style="border-top: 0px"></th>
@@ -161,7 +161,7 @@
     	$(".btn-update").click(function(){
     		var reqNo = $("#reqNo").val();
     		var position = '${position}';
-    		location.href = "/requestUpdateFrm.do?reqNo="+reqNo+"&position="+position;
+    		location.href = "/requestUpdateFrm?reqNo="+reqNo+"&position="+position;
     	});
     	
     	$(".btn-delete").click(function(){
@@ -174,7 +174,7 @@
     		}else{
     			var result = confirm('정말 삭제하시겠습니까?');
     			if(result){
-    				location.href = "/requestDeleteOne.do?reqNo="+reqNo+"&filepath="+filepath+"&position="+position;
+    				location.href = "/requestDeleteOne?reqNo="+reqNo+"&filepath="+filepath+"&position="+position;
     			}
     		}
     	});
@@ -183,7 +183,7 @@
     		var userId = $(".contact-user").val(); 
     		var freeId = $("#loginId").val();     
     		var _left = Math.ceil(( window.screen.width - 473 )/2);
-    		window.open('/requestSendPopup.do?userId='+userId+'&freeId='+freeId, '의뢰자에게 보낼 서비스 선택하기', 'width=473, height=515, left='+_left+', top=50, scrollbars=yes, location=no, resizable=no');
+    		window.open('/requestSendPopup?userId='+userId+'&freeId='+freeId, '의뢰자에게 보낼 서비스 선택하기', 'width=473, height=515, left='+_left+', top=50, scrollbars=yes, location=no, resizable=no');
 			return false;
     	});
     </script>

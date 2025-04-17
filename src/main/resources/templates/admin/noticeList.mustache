@@ -17,7 +17,7 @@
 			<c:forEach items="${list }" var="n">
 				<tr> 
 					<td>${n.NNo } </td>
-                	<td><a href="/noticeView.do?nNo=${n.NNo }" class = "table-title">${n.NTitle } </a> </td>
+                	<td><a href="/noticeView?nNo=${n.NNo }" class = "table-title">${n.NTitle } </a> </td>
                 	<td>일.구.시 </td>
                 	<td> ${n.writeDate } </td>
 				</tr>

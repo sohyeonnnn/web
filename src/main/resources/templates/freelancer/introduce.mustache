@@ -269,7 +269,7 @@
 		//새 jsp(reviewListSize.jsp)파서 값 불러내고 다시 불러오는 방식 ajax 평가 개수구하기
 		$.ajax({
 			type : "get",
-			url : "/reviewListSize.do",
+			url : "/reviewListSize",
 			data : {
 				mId : mId
 			},
@@ -286,7 +286,7 @@
 		//평점 평균 구하기 ajax
 		/* $.ajax({
 			type : "get",
-			url : "/sRateAVG.do",
+			url : "/sRateAVG",
 			data : {
 				mId : mId
 			},

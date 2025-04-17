@@ -246,7 +246,7 @@
 							<div>
 								<div>
 									<div>
-										<a href="/serviceView.do?sNo=${serviceList[status.index].SNo}&reqPage=1&mNo=${loginMember.MNo}"><img src="/upload/service/${ serviceList[status.index].SImg}" width="175px" height="103px" style="border-radius:5px;"></a>
+										<a href="/serviceView?sNo=${serviceList[status.index].SNo}&reqPage=1&mNo=${loginMember.MNo}"><img src="/upload/service/${ serviceList[status.index].SImg}" width="175px" height="103px" style="border-radius:5px;"></a>
 									</div>
 									<div style="color: #8a8a8a;">
 										사용자 ID
@@ -266,7 +266,7 @@
 										</div>
 									</div>
 									<div>
-										<a href="/serviceView.do?sNo=${serviceList[status.index].SNo }&reqPage=1&mNo=${loginMember.MNo}">${serviceList[status.index].STitle }</a>
+										<a href="/serviceView?sNo=${serviceList[status.index].SNo }&reqPage=1&mNo=${loginMember.MNo}">${serviceList[status.index].STitle }</a>
 									</div>
 								</div>
 							</div>
@@ -347,7 +347,7 @@
 	function trade_open(obj){
 		var tNo = $(obj).html();
 		var _left = Math.ceil(( window.screen.width - 473 )/2);
-		window.open('/serviceTradeView.do?tNo='+tNo, '거래 내용 확인', 'width=473, height=480, left='+_left+', top=50, scrollbars=no, location=no, resizable=no');
+		window.open('/serviceTradeView?tNo='+tNo, '거래 내용 확인', 'width=473, height=480, left='+_left+', top=50, scrollbars=no, location=no, resizable=no');
 		return false;
 	}
 	
@@ -360,7 +360,7 @@
 
 		 $.ajax({
 			type : "post",
-			url : "/updateTStatus.do",
+			url : "/updateTStatus",
 			data : {tNo : tNo},
 			error : function() {
 				alert("실패");
@@ -388,12 +388,12 @@
 		var tNo = $('#modal_tNo').val();
 		var mNo = $("#modal_mNo").val();
 		alert('소중한 의견 감사합니다.');
-		location.href="/updateWarningCount.do?mNo="+mNo;
+		location.href="/updateWarningCount?mNo="+mNo;
 	 });
 	
 	//거래상세보기 창에서 서비스 상세보기를 누르면
 	function gotoServiceView(sNo,mNo){
-		location.href="/serviceView.do?sNo="+sNo+"&reqPage=1&mNo="+mNo;
+		location.href="/serviceView?sNo="+sNo+"&reqPage=1&mNo="+mNo;
 	}
 		
 </script>

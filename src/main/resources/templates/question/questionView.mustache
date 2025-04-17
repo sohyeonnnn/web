@@ -140,7 +140,7 @@
         <c:if test="${question.secretStatus == 1 and loginMember.MNo != question.MNo}">
             <script>
                 alert("권한이 없습니다.");
-                location.href = "/qna.do?page=1";
+                location.href = "/qna?page=1";
             </script>
         </c:if>
     </c:if>
@@ -168,7 +168,7 @@
                             <tr>
                                 <th class="qna-col1">첨부파일</th>
                                 <th class="qna-col2"><a
-                                        href="/questionDown.do?fileName=${question.filePath}">${question.filePath}</a>
+                                        href="/questionDown?fileName=${question.filePath}">${question.filePath}</a>
                                 </th>
                             </tr>
                         </c:if>
@@ -189,14 +189,14 @@
             <div class="qna-bottom">
                 <div class="submit">
                     <c:if test="${question.MNo == loginMember.MNo and empty param.answer}">
-                        <a href="/questionFrm.do?q_No=${question.QNo}" class="btn-deepblue btn-quest">수정하기</a>
-                        <form action="deleteQuestion.do" method="post" style="display: inline-block;">
+                        <a href="/questionFrm?q_No=${question.QNo}" class="btn-deepblue btn-quest">수정하기</a>
+                        <form action="deleteQuestion" method="post" style="display: inline-block;">
                             <input type="hidden" name="qNo" value="${param.qNo}">
-                            <input type="hidden" name="loc" id="delete_loc" value="/qna.do">
+                            <input type="hidden" name="loc" id="delete_loc" value="/qna">
                             <button class="btn-deepblue btn-quest">삭제하기</button>
                         </form>
                     </c:if>
-                    <a href="/qna.do" class="btn-white">목록으로</a>
+                    <a href="/qna" class="btn-white">목록으로</a>
                 </div>
             </div>
         </div>

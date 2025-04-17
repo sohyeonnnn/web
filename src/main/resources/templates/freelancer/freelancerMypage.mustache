@@ -113,7 +113,7 @@
             	<button class="introduce-btn">나의 소개페이지 보기</button>
             </c:if>
             <div>
-            <form action="/updateFreelancer.do?" method="post">
+            <form action="/updateFreelancer?" method="post">
                 <div class="form-group brand">
                     <label for="tel-label">브랜드 명</label><br>
                     <input type="hidden" value="${loginMember.MId }" name="mId" id="mId">
@@ -157,7 +157,7 @@
 	//소개글로 이동
 	$(".introduce-btn").click(function(){
 		var mId = $("#mId").val();
-		location.href = "/introduceFrm.do?mId="+mId+"&reqPage=1";
+		location.href = "/introduceFrm?mId="+mId+"&reqPage=1";
 	});
 		
 

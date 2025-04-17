@@ -226,23 +226,23 @@
 	                    </div>
 	                    <div>
 	                        <div>
-	                            <div><a href="/serviceView.do?sNo=${serviceList[status.index].SNo}&reqPage=1&mNo=${loginMember.MNo}"><img src="/upload/service/${ serviceList[status.index].SImg}" width="175px" height="103px" style="border-radius:5px;"></a></div>
+	                            <div><a href="/serviceView?sNo=${serviceList[status.index].SNo}&reqPage=1&mNo=${loginMember.MNo}"><img src="/upload/service/${ serviceList[status.index].SImg}" width="175px" height="103px" style="border-radius:5px;"></a></div>
 	                            <div style="color:#8a8a8a;">
 	                                사용자 ID
 	                                <div>
 	                                    <div>
 	                                    <c:if test="${empty serviceList[status.index].MId}">(탈퇴한 회원)</c:if>
 	                                    <c:if test="${not empty serviceList[status.index].MId}">
-	                                    	<a href="/introduceFrm.do?mId=${serviceList[status.index].MId}&reqPage=1">${serviceList[status.index].MId }</a>
+	                                    	<a href="/introduceFrm?mId=${serviceList[status.index].MId}&reqPage=1">${serviceList[status.index].MId }</a>
 	                                	 </c:if>
 	                                    </div>
 	                                    <c:if test="${not empty serviceList[status.index].MId}">
-	                                    <div><a href="/introduceFrm.do?mId=${serviceList[status.index].MId}&reqPage=1"><img src="/img/icon/home.png"></a></div>
+	                                    <div><a href="/introduceFrm?mId=${serviceList[status.index].MId}&reqPage=1"><img src="/img/icon/home.png"></a></div>
 	                                    <div><a href="#" onclick="startChat('${serviceList[status.index].SNo}','${sessionScope.loginMember.MId }','${serviceList[status.index].MId}','${sessionScope.loginMember.MNo }','${sessionScope.loginMember.MGrade}');"><img src="/img/icon/message.png"></a></div>
 	                                	 </c:if>
 	                                </div>
 	                            </div>
-	                            <div><a href="/serviceView.do?sNo=${serviceList[status.index].SNo}&reqPage=1&mNo=${loginMember.MNo}">${serviceList[status.index].STitle }</a></div>
+	                            <div><a href="/serviceView?sNo=${serviceList[status.index].SNo}&reqPage=1&mNo=${loginMember.MNo}">${serviceList[status.index].STitle }</a></div>
 	                        </div>
 	                    </div>
 	                    <div>
@@ -329,7 +329,7 @@
 			var sImg = $(this).prev().prev().prev().prev().val();
 			var sTitle = $(this).prev().prev().prev().prev().prev().val();
 			console.log("아이디"+sTitle);
-			window.open('/serviceReviewWrite.do?tNo='+tNo+'&sNo='+sNo+'&mId='+mId+'&sImg='+sImg+'&sTitle='+sTitle,'거래후기 작성', 'width=430, height=510, left='+ _left + ', top=50, scrollbars=no,location=no, resizable=no');
+			window.open('/serviceReviewWrite?tNo='+tNo+'&sNo='+sNo+'&mId='+mId+'&sImg='+sImg+'&sTitle='+sTitle,'거래후기 작성', 'width=430, height=510, left='+ _left + ', top=50, scrollbars=no,location=no, resizable=no');
 			return false;
 		});
 		
@@ -338,14 +338,14 @@
 		    var mId = $(this).prev().val();
 			var sNo = $(this).prev().prev().val();
 			var tNo = $(this).prev().prev().prev().val();
-		    window.open('/serviceReviewView.do?tNo='+tNo+'&sNo='+sNo+'&mId='+mId, '거래 후기 확인', 'width=433, height=490, left='+_left+', top=50, scrollbars=no, location=no, resizable=no');
+		    window.open('/serviceReviewView?tNo='+tNo+'&sNo='+sNo+'&mId='+mId, '거래 후기 확인', 'width=433, height=490, left='+_left+', top=50, scrollbars=no, location=no, resizable=no');
 			return false;
 		});
 		
 		function trade_open(obj){
 			var tNo = $(obj).html();
 			var _left = Math.ceil(( window.screen.width - 473 )/2);
-			window.open('/serviceTradeView.do?tNo='+tNo, '거래 내용 확인', 'width=473, height=480, left='+_left+', top=50, scrollbars=no, location=no, resizable=no');
+			window.open('/serviceTradeView?tNo='+tNo, '거래 내용 확인', 'width=473, height=480, left='+_left+', top=50, scrollbars=no, location=no, resizable=no');
 			return false;
 		}
 		
@@ -376,7 +376,7 @@
 		  		}, function(rsp) {
 		  			if(rsp.success) { //결제가 성공한 경우 -> 나중에 이거 DB에 넣으면 됨!
 		  				console.log("성공");
-		  				location.href = "/insertServicePay.do?pNo="+mNo+"&tNo="+tNo+"&pPrice="+tPrice;
+		  				location.href = "/insertServicePay?pNo="+mNo+"&tNo="+tNo+"&pPrice="+tPrice;
 		  			} else {	//결제가 실패한 경우
 		  				console.log("실패");
 		  			}
@@ -387,12 +387,12 @@
 		
 		//거래상세보기 창에서 서비스 상세보기를 누르면
 		function gotoServiceView(sNo,mNo){
-			location.href="/serviceView.do?sNo="+sNo+"&reqPage=1&mNo="+mNo;
+			location.href="/serviceView?sNo="+sNo+"&reqPage=1&mNo="+mNo;
 		}
 		
 	    function startChat(sNo, userId, freeId, mNo, mGrade) {
 			$.ajax({
-				url : "/makeRoom.do",
+				url : "/makeRoom",
 				type : "post",
 				async : false,
 				data : {
@@ -403,10 +403,10 @@
 					mGrade : mGrade
 				},
 				success : function(data) {
-					/* location.href = "/enterRoom.do?cNo=-1&sNo=" + sNo
+					/* location.href = "/enterRoom?cNo=-1&sNo=" + sNo
 							+ "&myId=" + userId + "&yourId=" + freeId
 							+ "&mGrade=" + mGrade */
-					var loc="/enterRoom.do?cNo=-1&sNo=" + sNo + "&myId="+ userId + "&yourId=" + freeId+"&mGrade="+mGrade
+					var loc="/enterRoom?cNo=-1&sNo=" + sNo + "&myId="+ userId + "&yourId=" + freeId+"&mGrade="+mGrade
 					var _left = Math.ceil(( window.screen.width - 530 )/2);
 					window.open(loc, '', 'width=530, height=630, left='+_left+', top=50, location=no,scrollbars=no,location=no, resizable=no'); 
 				},

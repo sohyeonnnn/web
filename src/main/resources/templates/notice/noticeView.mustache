@@ -52,12 +52,12 @@
             </table>
             
             <div class="btn-left ">
-            	<a class="btn-emp" href="/noticeList.do?reqPage=1&keyword=">목록으로</a>
+            	<a class="btn-emp" href="/noticeList?reqPage=1&keyword=">목록으로</a>
             </div>
             <div class="btn-right">
             	<c:if test="${loginMember.MGrade == 0 }">
-            		<button class="btn btn-custom " onclick="location='/deleteNotic.do?nNo=${n.NNo}'">삭제하기</button>
-            		<button class="btn btn-custom " onclick="location='/updateNoticeFrm.do?nNo=${n.NNo}'">수정하기</button>
+            		<button class="btn btn-custom " onclick="location='/deleteNotic?nNo=${n.NNo}'">삭제하기</button>
+            		<button class="btn btn-custom " onclick="location='/updateNoticeFrm?nNo=${n.NNo}'">수정하기</button>
             	</c:if>
             </div>
            

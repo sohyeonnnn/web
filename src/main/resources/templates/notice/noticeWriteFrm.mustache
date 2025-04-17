@@ -21,7 +21,7 @@
             <div>공지사항</div>
         </div>
          <div class="board-box">
-        <form id="reqForm" action="/insertNotice.do" method="post" enctype="multipart/form-data">
+        <form id="reqForm" action="/insertNotice" method="post" enctype="multipart/form-data">
             <table class="table title-box">
                 <tr>
                     <th style="width: 10%;border-top: 2px solid rgb(49, 76, 131);text-align: center;line-height: 31px;">제목</th>
@@ -50,7 +50,7 @@
          
             <div>
             	<button class="back-btn save" id="savebutton">작성완료</button>
-            	<a href="/noticeList.do?reqPage=1&keyword=" class="Listbtn">목록으로</a>
+            	<a href="/noticeList?reqPage=1&keyword=" class="Listbtn">목록으로</a>
             </div>
             </form>
         </div>

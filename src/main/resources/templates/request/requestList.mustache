@@ -159,7 +159,7 @@
 	                <c:forEach items="${list }" var="r" varStatus="status">
 	               	<tr>
 	               		<td>${totalCount- status.index }</td>
-	               		<td><a href="/requestDetail.do?reqNo=${r.reqNo }&position=" class = "table-title">${r.reqTitle } </a></td>
+	               		<td><a href="/requestDetail?reqNo=${r.reqNo }&position=" class = "table-title">${r.reqTitle } </a></td>
 	               		<td>
 	               		<c:choose>
 	               			<c:when test="${r.reqStatus == 0 }">모집 중</c:when>
@@ -175,7 +175,7 @@
             <div>
             	<c:if test="${loginMember.MId != null }">
             		<br>
-            		<button class="btn-custom" onclick="location.href='/requestWriteFrm.do?position='">글쓰기</button>
+            		<button class="btn-custom" onclick="location.href='/requestWriteFrm?position='">글쓰기</button>
             	</c:if>
             </div>
             <br><br>
@@ -219,7 +219,7 @@
         	
         	$(".array").change(function(){
         		var order = $(".array").val();
-        		location.href ="/requestList.do?reqPage=1&order="+order+"&subject="+subject+"&keyword="+keyword;
+        		location.href ="/requestList?reqPage=1&order="+order+"&subject="+subject+"&keyword="+keyword;
         	});
     	});
     	
@@ -232,7 +232,7 @@
     	$(".search-btn").click(function(){
     		var search = $("#search-subject").val();
     		var keyword = $(".keyword").val();
-    		location.href ="/requestList.do?reqPage=1&order=new&subject="+search+"&keyword="+keyword;
+    		location.href ="/requestList?reqPage=1&order=new&subject="+search+"&keyword="+keyword;
     	});
     </script>
 </body>

@@ -205,7 +205,7 @@
 							<c:forEach items="${list}" var="s" begin="0" end="4">
 								<div>
 									<div>
-										<input type="hidden" value="${s.SNo }" id="sNo"> <a href="/serviceView.do?sNo=${s.SNo}&reqPage=1&mNo=${loginMember.MNo }">
+										<input type="hidden" value="${s.SNo }" id="sNo"> <a href="/serviceView?sNo=${s.SNo}&reqPage=1&mNo=${loginMember.MNo }">
 											<div class="title-img">
 												<div class="back-img">
 													<img src="/upload/service/${s.SImg}" width="225x" height="133px">
@@ -218,7 +218,7 @@
 									<div class="cate">
 										${s.mainCategoryName } / ${s.subCategoryName }
 									</div>
-									<div class="title"><a href="/serviceView.do?sNo=${s.SNo}&reqPage=1&mNo=${loginMember.MNo }"> ${s.STitle} </a></div>
+									<div class="title"><a href="/serviceView?sNo=${s.SNo}&reqPage=1&mNo=${loginMember.MNo }"> ${s.STitle} </a></div>
 									<a href="#">
 										<div class="content" style="font-size: 12pt; float: right; width: 200px; text-align: right;"  >${s.SPriceTxt }원~</div>
 									</a>
@@ -257,7 +257,7 @@
 			
 			$(".array").change(function () {
 				var order = $(".array").val();
-				location.href="/freelancerServiceList.do?mId="+id+"&order="+order;
+				location.href="/freelancerServiceList?mId="+id+"&order="+order;
 			})
 			 
 		});
@@ -270,7 +270,7 @@
     		var id = "${loginMember.MId}";
     		
     		if(confirm_test == true){
-    			location.href = "/delService.do?sNo="+sNo+"&mId="+id;
+    			location.href = "/delService?sNo="+sNo+"&mId="+id;
     		}
     		
     	};

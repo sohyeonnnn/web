@@ -177,12 +177,12 @@
 								<c:if test="${sessionScope.loginMember.MGrade==2 }">
 								<!-- 의뢰인이 먼저 시작한 채팅 -->
 									<c:if test="${freeId ne loginMember.MId }">
-										<a href="/quotationFrm.do?sNo=${service.SNo}&sTitle=${service.STitle }&userId=${freeId}&freeId=${loginMember.MId}"
+										<a href="/quotationFrm?sNo=${service.SNo}&sTitle=${service.STitle }&userId=${freeId}&freeId=${loginMember.MId}"
 										onClick="window.open(this.href, '', 'width=800, height=800, left=1000, scrollbars=no,location=no, resizable=no'); return false;"> 견적서 작성</a><br>
 									</c:if>
 								<!-- 프리랜서가 먼저 시작한 채팅 -->
 									<c:if test="${freeId eq loginMember.MId }">
-										<a href="/quotationFrm.do?sNo=${service.SNo}&sTitle=${service.STitle }&userId=${userId}&freeId=${loginMember.MId}"
+										<a href="/quotationFrm?sNo=${service.SNo}&sTitle=${service.STitle }&userId=${userId}&freeId=${loginMember.MId}"
 										onClick="window.open(this.href, '', 'width=800, height=800, left=1000, scrollbars=no,location=no, resizable=no'); return false;"> 견적서 작성</a><br>
 									</c:if>
 								</c:if>
@@ -285,7 +285,7 @@
 		function deleteMsg(ccNo) {
 			console.log("delete!");
 			$.ajax({
-				url : "/deleteMsg.do",
+				url : "/deleteMsg",
 				type : "post",
 				async : false,
 				data : {
@@ -350,7 +350,7 @@
 
 			if (content != "") {
 				$.ajax({
-					url : "/insertChat.do",
+					url : "/insertChat",
 					type : "post",
 					async : false,
 					data : {
@@ -392,13 +392,13 @@
 			if (check) {
 
 				$.ajax({
-					url : "/deleteChat.do",
+					url : "/deleteChat",
 					type : "post",
 					async : false,
 					data : {cNo : cNo},
 					success : function(data) {
 						console.log("삭제성공");
-						location.href = "/chatList.do?mGrade=" + mGrade
+						location.href = "/chatList?mGrade=" + mGrade
 								+ "&mId=" + mId
 					}
 				});
@@ -415,14 +415,14 @@
 						console.log("click!");
 						var sNo = ${service.SNo};
 						sNo = Number(sNo);
-						opener.parent.location.href = "/serviceView.do?sNo="
+						opener.parent.location.href = "/serviceView?sNo="
 								+ sNo + "&reqPage=1&mNo=" + ${loginMember.MNo};
 					}
 				});
 
 		$(".qna").click(function() {
 			console.log("click!!");
-			opener.parent.location.href = "/qna.do?page=1";
+			opener.parent.location.href = "/qna?page=1";
 		});
 	</script>
 

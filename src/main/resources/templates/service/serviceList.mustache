@@ -232,7 +232,7 @@ a:hover {
 			<ul>
 				<c:forEach items="${catList }" var="c">
 					<li class="navi-item"><a
-						href="/serviceList.do?cNo=${c.CNo }&reqPage=1&order=new"> ${c.CName } </a></li>
+						href="/serviceList?cNo=${c.CNo }&reqPage=1&order=new"> ${c.CName } </a></li>
 				</c:forEach>
 			</ul>
 		</div>
@@ -276,12 +276,12 @@ a:hover {
 						
 						<c:if test="${loginMember== null }"> 
 							<div class="imgBox">
-								<img src="upload/service/${s.SImg }" onclick="location.href='/serviceView2.do?sNo=${s.SNo}&reqPage=1'">
+								<img src="upload/service/${s.SImg }" onclick="location.href='/serviceView2?sNo=${s.SNo}&reqPage=1'">
 							</div>
 							<br> 
 							<span class="preName">${s.brandName }</span>
 							<p class="serviceCon" style="height: 30px;">
-								<a href="/serviceView2.do?sNo=${s.SNo}&reqPage=1"> ${s.STitle } </a>
+								<a href="/serviceView2?sNo=${s.SNo}&reqPage=1"> ${s.STitle } </a>
 							</p>
 						</c:if>
 						
@@ -289,12 +289,12 @@ a:hover {
 						
 						<c:if test="${loginMember != null }">
 							<div class="imgBox">
-								<img src="upload/service/${s.SImg }" onclick="location.href='/serviceView.do?sNo=${s.SNo}&reqPage=1&mNo=${loginMember.MNo }'">
+								<img src="upload/service/${s.SImg }" onclick="location.href='/serviceView?sNo=${s.SNo}&reqPage=1&mNo=${loginMember.MNo }'">
 							</div>
 							<br> 
 							<span class="preName">${s.brandName }</span>
 							<p class="serviceCon" style="height: 30px;">
-								<a href="/serviceView.do?sNo=${s.SNo}&reqPage=1&mNo=${loginMember.MNo }"> ${s.STitle } </a>
+								<a href="/serviceView?sNo=${s.SNo}&reqPage=1&mNo=${loginMember.MNo }"> ${s.STitle } </a>
 							</p>
 						</c:if>
 						
@@ -371,13 +371,13 @@ a:hover {
 			
 			$(".array").change(function(){
 				var order = $(".array").val();
-				location.href = "/serviceList.do?cNo="+cNo+"&reqPage=1&order="+order+"&keyword=";			
+				location.href = "/serviceList?cNo="+cNo+"&reqPage=1&order="+order+"&keyword=";			
 				
 			});
 			
 			$(".search-btn").click(function () {
 				var keyword = $(".keyword").val();
-				location.href="/serviceList.do?cNo="+cNo+"&reqPage=1&order=new&keyword="+keyword;
+				location.href="/serviceList?cNo="+cNo+"&reqPage=1&order=new&keyword="+keyword;
 			})
 	
 		});

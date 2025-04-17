@@ -146,7 +146,7 @@
 		$(".goRequest")
 				.click(
 						function() {
-							opener.parent.location.href = "requestList.do?reqPage=1&order=new&subject=all&keyword=";
+							opener.parent.location.href = "requestList?reqPage=1&order=new&subject=all&keyword=";
 							window.close();
 						});
 
@@ -168,7 +168,7 @@
 				alert("탈퇴한 회원입니다");
 
 			} else {
-				 	location.href = "/enterRoom.do?cNo=" + cNo + "&sNo="
+				 	location.href = "/enterRoom?cNo=" + cNo + "&sNo="
 							+ sNo + "&yourId=" + freeId; 
 			}
 		});

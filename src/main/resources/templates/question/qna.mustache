@@ -273,13 +273,13 @@
                             <tr>
                                 <td>${qList.QNo}</td>
                                 <td>
-                                    <a href="/questionView.do?qNo=${qList.QNo}">${qList.QTitle}</a>
+                                    <a href="/questionView?qNo=${qList.QNo}">${qList.QTitle}</a>
                                     <c:if test="${qList.secretStatus == 1}">
                                         <span>&#128274;</span>
                                     </c:if>
                                     <c:if test="${not empty loginMember and loginMember.MGrade == 0}">
                                         <c:if test="${qList.answerStatus == 0}">
-                                            <a href="questionFrm.do?answerNo=${qList.QNo}" class="btn-answer">답변</a>
+                                            <a href="questionFrm?answerNo=${qList.QNo}" class="btn-answer">답변</a>
                                         </c:if>
                                     </c:if>
                                 </td>
@@ -290,9 +290,9 @@
                                 <tr style="border-top: none;">
                                     <td></td>
                                     <td>
-                                        <a href="/questionView.do?qNo=${qList.QNo}&answer=true">&#10551; 답변입니다.</a>
+                                        <a href="/questionView?qNo=${qList.QNo}&answer=true">&#10551; 답변입니다.</a>
                                         <c:if test="${not empty loginMember and loginMember.MGrade == 0}">
-                                            <a href="questionFrm.do?answerNo=${qList.QNo}&q_No=${qList.QNo}"
+                                            <a href="questionFrm?answerNo=${qList.QNo}&q_No=${qList.QNo}"
                                                 class="btn-update">수정</a>
                                         </c:if>
                                     </td>
@@ -326,7 +326,7 @@
                 </div>
                 <div class="btn-write">
                     <c:if test="${not empty loginMember}">
-                        <a href="/questionFrm.do">글쓰기</a>
+                        <a href="/questionFrm">글쓰기</a>
                     </c:if>
                 </div>
                 <div class="qna-search">

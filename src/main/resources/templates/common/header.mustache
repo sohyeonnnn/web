@@ -66,7 +66,7 @@
     {{#loginMember}}
         {{^isAdmin}}
             <div class="chat-remocon">
-                <a href="/chatList.do?mGrade={{loginMember.MGrade}}&mId={{loginMember.MId}}"
+                <a href="/chatList?mGrade={{loginMember.MGrade}}&mId={{loginMember.MId}}"
                 onClick="window.open(this.href, '', 'width=530, height=630, left=1000'); return false;">문의하기</a>
             </div>
         {{/isAdmin}}
@@ -79,7 +79,7 @@
             </div>
             <div class="header-top-center">
                 <div class="header-search">
-                    <form action="/serviceSearch.do" method="get">
+                    <form action="/serviceSearch" method="get">
                         <input type="text" name="keyword" id="h-search" placeholder="키워드를 입력해주세요.">
                         <button>검색</button>
                     </form>
@@ -95,16 +95,16 @@
 
                     {{#loginMember}}
                         <ul class="ul-user">
-                            <a href="{{#isNormalUser}}/userMypage.do{{/isNormalUser}}{{^isNormalUser}}/manageMember.do?reqPage=1&grade=all&keyword=&order=new{{/isNormalUser}}" id="user_name">{{loginMember.MName}}</a>
+                            <a href="{{#isNormalUser}}/userMypage{{/isNormalUser}}{{^isNormalUser}}/manageMember?reqPage=1&grade=all&keyword=&order=new{{/isNormalUser}}" id="user_name">{{loginMember.MName}}</a>
                             <li>
                                 <ul>
                                     <li>
-                                        <a href="{{#isNormalUser}}/userMypage.do{{/isNormalUser}}{{^isNormalUser}}/manageMember.do?reqPage=1&grade=all&keyword=&order=new{{/isNormalUser}}">
+                                        <a href="{{#isNormalUser}}/userMypage{{/isNormalUser}}{{^isNormalUser}}/manageMember?reqPage=1&grade=all&keyword=&order=new{{/isNormalUser}}">
                                             {{#isNormalUser}}마이페이지{{/isNormalUser}}{{^isNormalUser}}관리페이지{{/isNormalUser}}
                                         </a>
                                     </li>
-                                    <li><a href="qna.do?page=1">1:1 문의</a></li>
-                                    <li><span id="logout"><a href="/logout.do">로그아웃</a></span></li>
+                                    <li><a href="qna?page=1">1:1 문의</a></li>
+                                    <li><span id="logout"><a href="/logout">로그아웃</a></span></li>
                                 </ul>
                             </li>
                         </ul>

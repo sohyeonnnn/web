@@ -19,7 +19,7 @@
             <div>공지사항_수정</div>
         </div>
          <div class="board-box">
-        <form id="reqForm" action="/updateNotice.do?nNo=${n.NNo }" method="post" enctype="multipart/form-data">
+        <form id="reqForm" action="/updateNotice?nNo=${n.NNo }" method="post" enctype="multipart/form-data">
             <table class="table title-box">
                 <tr>
                     <th style="width: 10%;border-top: 2px solid rgb(49, 76, 131);text-align: center;line-height: 31px;">제목</th>
@@ -51,7 +51,7 @@
          
             <div>
             	<button class="back-btn save" id="savebutton">수정완료</button>
-            	<a href="/noticeList.do?reqPage=1&keyword=" class="Listbtn">수정취소</a>
+            	<a href="/noticeList?reqPage=1&keyword=" class="Listbtn">수정취소</a>
             </div>
             </form>
         </div>

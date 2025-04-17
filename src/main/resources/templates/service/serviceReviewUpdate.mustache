@@ -177,7 +177,7 @@
 				var sNo = $("#sNo").val();
 				var rate = rateTxt[0];
 				var content = $("#review").val();
-				location.href="/serviceReviewUpdate.do?rNo="+rNo+"&rRate="+rate+"&rContent="+content+"&sNo="+sNo;
+				location.href="/serviceReviewUpdate?rNo="+rNo+"&rRate="+rate+"&rContent="+content+"&sNo="+sNo;
 			}
 		});
 		
@@ -185,7 +185,7 @@
 			var rNo = $("#rNo").val();
 			var tNo = $("#tNo").val();
 			var sNo = $("#sNo").val();
-			location.href="/serviewReviewDelete.do?rNo="+rNo+"&tNo="+tNo+"&sNo="+sNo;
+			location.href="/serviewReviewDelete?rNo="+rNo+"&tNo="+tNo+"&sNo="+sNo;
 		});
 	</script>
 </body>

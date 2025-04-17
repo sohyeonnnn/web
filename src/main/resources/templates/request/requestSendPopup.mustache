@@ -153,7 +153,7 @@
     		console.log(freeId+"/"+sNo+"/"+userId+"/"+mGrade);
     		
     		$.ajax({
-				url : "/makeRoom.do",
+				url : "/makeRoom",
 				type : "post",
 				async : false,
 				data : {
@@ -164,7 +164,7 @@
 					mGrade:mGrade
 				},
 				success : function(data) {
-					var loc="/enterRoom.do?cNo=-1&sNo=" + sNo + "&myId="+ userId + "&yourId=" + freeId+"&mGrade="+mGrade
+					var loc="/enterRoom?cNo=-1&sNo=" + sNo + "&myId="+ userId + "&yourId=" + freeId+"&mGrade="+mGrade
 					var _left = Math.ceil(( window.screen.width - 530 )/2);
 					window.open(loc, '', 'width=530, height=630, left='+_left+', top=50, location=no,scrollbars=no,location=no, resizable=no'); 
 					window.close();
@@ -179,7 +179,7 @@
     	
     	//서비스 누르면 새 창으로 연결
     	function openService(sNo,mNo){
-    		var win = window.open("/serviceView.do?sNo="+sNo+"&reqPage=1&mNo="+mNo, "serviceView", "width="+(window.screen.width)+",height="+(window.screen.height));
+    		var win = window.open("/serviceView?sNo="+sNo+"&reqPage=1&mNo="+mNo, "serviceView", "width="+(window.screen.width)+",height="+(window.screen.height));
     	}
     </script>
 </body>

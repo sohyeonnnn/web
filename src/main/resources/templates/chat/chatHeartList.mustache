@@ -117,7 +117,7 @@
 	<script>
 		function deleteFavorite(sNo,mNo) {
 			$.ajax({
-				url : "/deleteHeart.do",
+				url : "/deleteHeart",
 				type : "get",
 				data : {
 					sNo : sNo,
@@ -139,7 +139,7 @@
 
 		function startChat(sNo, userId, freeId, mNo, mGrade) {
 			$.ajax({
-				url : "/makeRoom.do",
+				url : "/makeRoom",
 				type : "post",
 				async : false,
 				data : {
@@ -150,7 +150,7 @@
 					mGrade : mGrade
 				},
 				success : function(data) {
-					location.href = "/enterRoom.do?cNo=-1&sNo=" + sNo
+					location.href = "/enterRoom?cNo=-1&sNo=" + sNo
 							+ "&myId=" + userId + "&yourId=" + freeId
 							+ "&mGrade=" + mGrade
 				},

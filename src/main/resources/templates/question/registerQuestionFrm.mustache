@@ -177,7 +177,7 @@
                     </div>
                 </div>
             </div>
-            <form id="qna-reg-form" action="registerQuestion.do" method="POST" enctype="multipart/form-data">
+            <form id="qna-reg-form" action="registerQuestion" method="POST" enctype="multipart/form-data">
                 <c:if test="${not empty param.answerNo}">
                     <input type="hidden" name="answer_No" value="${param.answerNo}">
                 </c:if>
@@ -230,7 +230,7 @@
                     <div class="submit">
 
                         <input type="submit" class="btn-update" value="등록하기">
-                        <a href="/qna.do" class="btn-answer">목록으로</a>
+                        <a href="/qna" class="btn-answer">목록으로</a>
                     </div>
                 </div>
             </form>

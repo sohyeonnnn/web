@@ -91,7 +91,7 @@
         <div class="board-wrap">
             <div class="board-box">
                 <span>내가 작성한 의뢰 글</span>
-                <button class="btn-custom" onclick="location.href='/requestWriteFrm.do?position=mypage'">글쓰기</button>
+                <button class="btn-custom" onclick="location.href='/requestWriteFrm?position=mypage'">글쓰기</button>
             </div>
             <div class="container-box">
 				<table class="table table-hover">
@@ -106,7 +106,7 @@
 		                <c:if test="${r.MId == loginMember.MId }">
 							<tr>
 			               		<td>${status.count }</td>
-			               		<td><a href="/requestDetail.do?reqNo=${r.reqNo }&position=mypage" class = "table-title">${r.reqTitle } </a></td>
+			               		<td><a href="/requestDetail?reqNo=${r.reqNo }&position=mypage" class = "table-title">${r.reqTitle } </a></td>
 			               		<td>
 			               		<c:choose>
 			               			<c:when test="${r.reqStatus == 0 }">모집 중</c:when>

@@ -180,7 +180,7 @@
 		            <c:forEach items="${list }" var="s" varStatus="status">
 		            <div>
 		                <div>
-		                    <a href="/serviceView.do?sNo=${s.SNo }&reqPage=1&mNo=${loginMember.MNo}">
+		                    <a href="/serviceView?sNo=${s.SNo }&reqPage=1&mNo=${loginMember.MNo}">
 		                        <div class="title-img">
 		                            <div class="back-img">
 		                            	<img src="/upload/service/${s.SImg }" width="225x" height="133px">
@@ -195,7 +195,7 @@
 		                </div>
 		                <div class="empty"></div>
 		                <div class="title">${brandList[status.index] }</div>
-		                <a href="/serviceView.do?sNo=${s.SNo }&reqPage=1&mNo=${loginMember.MNo}" id="serviceContent">
+		                <a href="/serviceView?sNo=${s.SNo }&reqPage=1&mNo=${loginMember.MNo}" id="serviceContent">
 		                    <div class="content">${s.STitle } </div>
 		                    <div class="price">${s.SPriceTxt }</div>
 		                    <div class="rate"><span>평점 </span><span>${s.SRate }</span><span>.0점</span><span>★★★★★</span>
@@ -219,7 +219,7 @@
             var mNo = $(obj).next().next().val();
             if($(obj).attr('value') == "fill"){
                 $.ajax({
-                	url : "/deleteHeart.do",
+                	url : "/deleteHeart",
                 	type : "get",
                 	data : {"sNo":sNo, "mNo":mNo},
                 	success : function(data){
@@ -232,7 +232,7 @@
                 });
             }else{
             	$.ajax({
-            		url : "/insertHeart.do",
+            		url : "/insertHeart",
             		type : "get",
             		data : {"sNo":sNo, "mNo":mNo},
             		success : function(data){
@@ -286,7 +286,7 @@
         $("#array-select").change(function(){
         	var order = $("#array-select").val();
         	var mNo = $("#mNo").val();
-        	location.href = "/userHeartList.do?mNo="+mNo+"&order="+order;
+        	location.href = "/userHeartList?mNo="+mNo+"&order="+order;
         	console.log(order+"/"+mNo);
         });
     </script>
