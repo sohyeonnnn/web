@@ -19,12 +19,12 @@ public class JpaCategoryRepository implements CategoryRepository {
 
     @Override
     public List<Category> selectCategoryList() {
-        return jpaRepository.selectCategoryList();
+        return null;
     }
 
     @Override
     public List<CategoryRank> selectCategoryRankList() {
-        return jpaRepository.selectCategoryRankList();
+        return null;
     }
 
 

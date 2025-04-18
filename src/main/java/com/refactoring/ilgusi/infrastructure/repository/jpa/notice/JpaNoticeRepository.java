@@ -37,11 +37,9 @@ public class JpaNoticeRepository implements NoticeRepository {
         return 0;
     }
 
+    @Override
     public int totalCount(){
         return 0;
     }
 
-    public ArrayList<Notice> selectNoticeList(){
-        return null;
-    }
 }

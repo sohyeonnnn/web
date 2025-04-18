@@ -140,7 +140,7 @@ public class MemberController {
         // 프리랜서로 전환한 적이 없으면 -> db에 2를 넣어줌
         if (grade == 1) {
 
-            return "redirect:/freelancerMypage?MNo=" + m.getMNo();
+            return "redirect:/freelancerMypage?MNo="/* + m.getMNo()*/;
         } else {
 
             return "member/userMypage";

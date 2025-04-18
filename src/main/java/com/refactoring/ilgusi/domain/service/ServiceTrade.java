@@ -2,9 +2,17 @@ package com.refactoring.ilgusi.domain.service;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 @Data
+@Entity
 public class ServiceTrade {
-	private int tNo;			//거래번호
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer tNo;			//거래번호
 	private int sNo;			//서비스 번호
 	private int mNo;			//멤버 번호
 	private int tStatus;		//거래 진행 상태
